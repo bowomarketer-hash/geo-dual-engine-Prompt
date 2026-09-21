@@ -37,16 +37,6 @@ if not check_password():
 st.title("🎯 GEO Dual-Engine Audit: ChatGPT & Google Search (Gemini)")
 st.caption("Framework Audit Visibilitas AI untuk Menghasilkan Leads & Sales di Pasar Indonesia")
 
-# Konfigurasi Tampilan Halaman
-st.set_page_config(
-    page_title="GEO Dual-Engine Audit: ChatGPT & Google Gemini",
-    page_icon="🎯",
-    layout="wide"
-)
-
-# Header Utama
-st.title("🎯 GEO Dual-Engine Audit: ChatGPT & Google Search (Gemini)")
-st.caption("Framework Audit Visibilitas AI untuk Menghasilkan Leads & Sales di Pasar Indonesia")
 
 # Framework Card: Pembagian Peran Kedua AI
 st.markdown("---")
