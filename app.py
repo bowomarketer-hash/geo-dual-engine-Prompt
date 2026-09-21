@@ -1,6 +1,42 @@
 import streamlit as st
 import pandas as pd
 
+# 1. Konfigurasi Halaman (WAJIB paling atas sebelum fungsi UI apa pun)
+st.set_page_config(
+    page_title="GEO Dual-Engine Audit: ChatGPT & Google Gemini",
+    page_icon="🎯",
+    layout="wide"
+)
+
+# 2. Fungsi Pengecekan Kata Sandi
+def check_password():
+    """Mengembalikan True jika pengguna memasukkan kata sandi yang benar."""
+    def password_entered():
+        if st.session_state["password"] == "GEOVIP2026":  # Ganti dengan kata sandi Anda
+            st.session_state["password_correct"] = True
+            del st.session_state["password"]
+        else:
+            st.session_state["password_correct"] = False
+
+    if "password_correct" not in st.session_state:
+        st.text_input("Masukkan Kunci Akses Eksklusif:", type="password", on_change=password_entered, key="password")
+        st.caption("🔒 Kunci akses tercantum pada halaman terakhir Ebook Interaktif GEO Anda.")
+        return False
+    elif not st.session_state["password_correct"]:
+        st.text_input("Masukkan Kunci Akses Eksklusif:", type="password", on_change=password_entered, key="password")
+        st.error("Kunci akses salah. Silakan periksa kembali email konfirmasi atau dokumen ebook Anda.")
+        return False
+    else:
+        return True
+
+# 3. Kunci Akses Dijalankan
+if not check_password():
+    st.stop()
+
+# 4. Header & Konten Utama Lanjutan
+st.title("🎯 GEO Dual-Engine Audit: ChatGPT & Google Search (Gemini)")
+st.caption("Framework Audit Visibilitas AI untuk Menghasilkan Leads & Sales di Pasar Indonesia")
+
 # Konfigurasi Tampilan Halaman
 st.set_page_config(
     page_title="GEO Dual-Engine Audit: ChatGPT & Google Gemini",
